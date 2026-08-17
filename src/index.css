@@ -1,0 +1,226 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ──────────────────────────────────────────────
+   ReApexDate — Data-Attribute Styling Map v0.2
+   ────────────────────────────────────────────── */
+
+/* ═══ DatePickerInput Wrapper ═══ */
+[data-datepicker-wrapper] {
+  @apply relative inline-block w-80;
+}
+
+[data-datepicker-input] {
+  @apply flex items-center gap-2 px-3 py-2.5 border border-gray-300 rounded-xl bg-white cursor-pointer transition-all duration-200 hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full;
+}
+
+[data-datepicker-input][aria-expanded="true"] {
+  @apply ring-2 ring-blue-500 border-transparent;
+}
+
+[data-datepicker-icon] {
+  @apply text-gray-400 text-sm flex-shrink-0;
+}
+
+[data-datepicker-display] {
+  @apply border-0 outline-none bg-transparent text-sm text-gray-800 cursor-pointer flex-1 min-w-0;
+}
+
+[data-datepicker-display]::placeholder {
+  @apply text-gray-400;
+}
+
+[data-datepicker-clear] {
+  @apply text-gray-400 hover:text-red-500 transition-colors text-lg leading-none cursor-pointer bg-transparent border-0 p-0 flex-shrink-0;
+}
+
+[data-datepicker-popover] {
+  @apply z-50 mt-1;
+}
+
+[data-disabled="true"] [data-datepicker-input] {
+  @apply opacity-50 cursor-not-allowed hover:border-gray-300;
+}
+
+/* ═══ Calendar Root ═══ */
+[data-calendar-root] {
+  @apply bg-white rounded-2xl shadow-xl border border-gray-100 p-4 w-80 select-none;
+}
+
+/* ═══ Header ═══ */
+[data-calendar-header] {
+  @apply flex items-center justify-between mb-3 px-1;
+}
+
+[data-calendar-header] button {
+  @apply w-8 h-8 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-colors text-sm font-medium cursor-pointer border-0 bg-transparent;
+}
+
+[data-calendar-title] {
+  @apply text-sm font-semibold text-gray-800 tracking-wide hover:bg-blue-50 hover:text-blue-700 px-3 py-1 rounded-lg transition-colors;
+}
+
+/* ═══ Day Grid ═══ */
+[data-calendar-grid] {
+  @apply w-full border-collapse;
+}
+
+[data-day-header] {
+  @apply text-xs font-medium text-gray-400 uppercase pb-2 text-center;
+}
+
+[data-calendar-grid] td {
+  @apply p-0.5 text-center;
+}
+
+[data-calendar-grid] td button {
+  @apply w-9 h-9 rounded-full text-sm font-medium transition-all duration-150 cursor-pointer border-0 bg-transparent text-gray-700 hover:bg-gray-100;
+}
+
+[data-calendar-grid] td button[data-outside-month="true"] {
+  @apply text-gray-300;
+}
+
+[data-calendar-grid] td button[data-today="true"] {
+  @apply ring-2 ring-blue-400 ring-offset-1 font-bold text-blue-600;
+}
+
+[data-calendar-grid] td button[data-selected="true"] {
+  @apply bg-blue-600 text-white rounded-full font-bold shadow-md hover:bg-blue-700;
+}
+
+[data-calendar-grid] td button[data-in-range="true"] {
+  @apply bg-blue-100 text-blue-900 rounded-none;
+}
+
+[data-calendar-grid] td button[data-range-start="true"] {
+  @apply bg-blue-600 text-white rounded-l-full font-bold;
+}
+
+[data-calendar-grid] td button[data-range-end="true"] {
+  @apply bg-blue-600 text-white rounded-r-full font-bold;
+}
+
+[data-calendar-grid] td button[data-hover-range="true"] {
+  @apply bg-blue-50 text-blue-700 rounded-none;
+}
+
+[data-calendar-grid] td button[data-focused="true"] {
+  @apply ring-2 ring-indigo-500 ring-offset-1 outline-none;
+}
+
+[data-calendar-grid] td button[data-disabled="true"] {
+  @apply opacity-30 cursor-not-allowed hover:bg-transparent;
+}
+
+/* ═══ Month Grid ═══ */
+[data-month-grid] {
+  @apply w-full border-collapse;
+}
+
+[data-month-grid] td {
+  @apply p-1 text-center;
+}
+
+[data-month-grid] td button {
+  @apply w-full py-3 rounded-xl text-sm font-medium transition-all duration-150 cursor-pointer border-0 bg-transparent text-gray-700 hover:bg-gray-100;
+}
+
+[data-month-grid] td button[data-selected="true"] {
+  @apply bg-blue-600 text-white font-bold shadow-md hover:bg-blue-700;
+}
+
+[data-month-grid] td button[data-current="true"]:not([data-selected="true"]) {
+  @apply ring-2 ring-blue-400 ring-offset-1 font-bold text-blue-600;
+}
+
+[data-month-grid] td button[data-disabled="true"] {
+  @apply opacity-30 cursor-not-allowed hover:bg-transparent;
+}
+
+/* ═══ Year Grid ═══ */
+[data-year-grid] {
+  @apply w-full border-collapse;
+}
+
+[data-year-grid] td {
+  @apply p-1 text-center;
+}
+
+[data-year-grid] td button {
+  @apply w-full py-3 rounded-xl text-sm font-medium transition-all duration-150 cursor-pointer border-0 bg-transparent text-gray-700 hover:bg-gray-100;
+}
+
+[data-year-grid] td button[data-selected="true"] {
+  @apply bg-blue-600 text-white font-bold shadow-md hover:bg-blue-700;
+}
+
+[data-year-grid] td button[data-current="true"]:not([data-selected="true"]) {
+  @apply ring-2 ring-blue-400 ring-offset-1 font-bold text-blue-600;
+}
+
+[data-year-grid] td button[data-disabled="true"] {
+  @apply opacity-30 cursor-not-allowed hover:bg-transparent;
+}
+
+/* === Time Picker === */
+[data-time-picker] {
+  @apply flex gap-0 items-stretch bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden w-64;
+}
+
+[data-time-column] {
+  @apply flex flex-col overflow-y-auto max-h-52 flex-1 py-1;
+  scrollbar-width: thin;
+}
+
+[data-time-separator] {
+  @apply flex items-center justify-center text-gray-400 text-lg font-bold px-1;
+}
+
+[data-time-cell] {
+  @apply px-2 py-1.5 text-sm text-center cursor-pointer bg-transparent border-0 transition-all text-gray-700 hover:bg-gray-100;
+}
+
+[data-time-cell][data-selected="true"] {
+  @apply bg-blue-600 text-white font-bold;
+}
+
+[data-time-cell][data-disabled="true"] {
+  @apply opacity-30 cursor-not-allowed hover:bg-transparent;
+}
+
+[data-time-column="meridiem"] {
+  @apply flex flex-col justify-center gap-1 px-1 border-l border-gray-100;
+}
+
+/* === Calendar Footer === */
+[data-calendar-footer] {
+  @apply px-1 py-1;
+}
+
+/* === Presets === */
+[data-presets] {
+  @apply flex flex-wrap gap-1 mb-2;
+}
+
+[data-preset] {
+  @apply px-3 py-1 text-xs rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors cursor-pointer border-0;
+}
+
+/* === DateTime Picker === */
+[data-datetime-picker] {
+  @apply flex flex-col items-center gap-2;
+}
+
+[data-datetime-calendar] {
+  @apply w-full;
+}
+
+[data-datetime-time] {
+  @apply w-full flex justify-center;
+}
+
+[data-datetime-display] {
+  @apply text-xs text-center text-gray-600 bg-blue-50 rounded-lg px-3 py-2 font-medium w-full;
+}
